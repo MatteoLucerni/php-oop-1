@@ -1,75 +1,13 @@
 <?php
-class Movie
-{
-    public $title;
-    public $relase_date;
-    public $genre;
-    public $actors;
 
-    public function __construct(
-        $title,
-        $relase_date,
-        $genre,
-        $actors
-    ) {
-        $this->title = $title;
-        $this->relase_date = $relase_date;
-        $this->genre = $genre;
-        $this->actors = $actors;
-    }
+include './models/Movie.php';
 
-    public function getYears()
-    {
-        $current_date = date("Y");
-        $year = $current_date - $this->relase_date;
-        return $year;
-    }
-}
+include './models/Actor.php';
 
-class Actor
-{
-    public $first_name;
-    public $last_name;
-    public $age;
+include './database/db.php';
 
-    public function __construct(
-        $first_name,
-        $last_name,
-        $age,
 
-    ) {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->age = $age;
-    }
 
-    public function getFullName()
-    {
-        return "$this->first_name $this->last_name";
-    }
-}
-
-// attori imitation game
-$actor1 = new Actor('Benedict', 'Cumberbatch', 33);
-$actor2 = new Actor('Jimm', 'Logan', 40);
-// attori interstellar
-$actor3 = new Actor('Matthew', 'McConaughey', 50);
-$actor4 = new Actor('Maria', 'Ginni', 27);
-
-$imitation_game_actors = [
-    $main_actor = $actor1->getFullName() . ' che ha ' . $actor1->age . ' anni',
-    $secondary_actor = $actor2->getFullName() . ' che ha ' . $actor2->age . ' anni'
-];
-
-$interstellar_actors = [
-    $main_actor = $actor3->getFullName() . ' che ha ' . $actor3->age . ' anni',
-    $secondary_actor = $actor4->getFullName() . ' che ha ' . $actor4->age . ' anni'
-];
-
-$films = [
-    $imitation_game = new Movie('The Imitation Game', 2014, 'Drammatico', $imitation_game_actors),
-    $interstellar = new Movie('Interstellar', 2016, 'Fantascienza', $interstellar_actors)
-];
 
 ?>
 
@@ -93,9 +31,11 @@ $films = [
                     <h4 class="mb-4"><?= $film->title ?></h4>
                     <p>Genere: <?= $film->genre ?></p>
                     <p>Attori:
+                    <ul>
                         <?php foreach ($film->actors as $actor) : ?>
-                            <span>"<?= $actor ?>"</span>
+                            <li>"<?= $actor ?>"</li>
                         <?php endforeach ?>
+                    </ul>
                     </p>
                     <p>Anno: <?= $film->relase_date ?></p>
                     <p>E' uscito <?= $film->getYears() ?> anni fa</p>
