@@ -24,20 +24,20 @@ include './database/db.php';
 </head>
 
 <body class="bg-light">
-    <div class="container">
+    <div class="container my-5">
+        <h1>FILMS</h1>
         <ul class="mt-5 p-0">
             <?php foreach ($films as $film) : ?>
                 <li class="card p-5 mb-5">
                     <h4 class="mb-4"><?= $film->title ?></h4>
-                    <p>Genere: <?= $film->genre ?></p>
-                    <p>Attori:
-                    <ul>
+                    <p><strong>Genere:</strong> <?= $film->genre ?></p>
+                    <p class="mb-0"><strong>Attori:</strong></p>
+                    <ul class="mb-3">
                         <?php foreach ($film->actors as $actor) : ?>
                             <li>"<?= $actor ?>"</li>
                         <?php endforeach ?>
                     </ul>
-                    </p>
-                    <p>Anno: <?= $film->relase_date ?></p>
+                    <p><strong>Anno:</strong> <?= $film->relase_date ?></p>
                     <p>E' uscito <?= $film->getYears() ?> anni fa</p>
                 </li>
             <?php endforeach ?>
