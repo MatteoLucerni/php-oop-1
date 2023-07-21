@@ -20,11 +20,14 @@ class Movie
 }
 
 
-$imitation_game = new Movie('The Imitation Game', 2014, 'drama', 'Benedict Cumberbatch');
-$interstellar = new Movie('Interstellar', 2016, 'fantasy', 'Matthew McConaughey');
+$films = [
+    $imitation_game = new Movie('The Imitation Game', 2014, 'Drammatico', 'Benedict Cumberbatch'),
+    $interstellar = new Movie('Interstellar', 2016, 'Fantascienza', 'Matthew McConaughey')
+];
 
-var_dump($imitation_game);
-var_dump($interstellar);
+var_dump($films[0]);
+
+var_dump($films[1]);
 
 
 ?>
@@ -41,8 +44,20 @@ var_dump($interstellar);
     <title>OOP</title>
 </head>
 
-<body>
-
+<body class="bg-light">
+    <hr>
+    <div class="container">
+        <ul class="mt-5 p-0">
+            <?php foreach ($films as $film) : ?>
+                <li class="card p-5 mb-5">
+                    <h4 class="mb-4"><?= $film->title ?></h4>
+                    <p>Anno: <?= $film->year ?></p>
+                    <p>Genere: <?= $film->genre ?></p>
+                    <p>Attore principale: <?= $film->main_actor ?></p>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
 </body>
 
 </html>
