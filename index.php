@@ -49,9 +49,10 @@ class Actor
     }
 }
 
+// attori imitation game
 $actor1 = new Actor('Benedict', 'Cumberbatch', 38);
 $actor2 = new Actor('Jimm', 'Logan', 40);
-
+// attori interstellar
 $actor3 = new Actor('Matthew', 'McConaughey', 50);
 $actor4 = new Actor('Maria', 'Ginni', 27);
 
@@ -65,8 +66,8 @@ $interstellar_actors = [
     $secondary_actor = $actor4->getFullName()
 ];
 
-var_dump($imitation_game_actors);
-var_dump($interstellar_actors);
+// var_dump($imitation_game_actors);
+// var_dump($interstellar_actors);
 
 
 $films = [
@@ -99,13 +100,13 @@ $films = [
             <?php foreach ($films as $film) : ?>
                 <li class="card p-5 mb-5">
                     <h4 class="mb-4"><?= $film->title ?></h4>
-                    <p>Anno: <?= $film->relase_date ?></p>
                     <p>Genere: <?= $film->genre ?></p>
                     <p>Attori:
                         <?php foreach ($film->actors as $actor) : ?>
                             <span>"<?= $actor ?>"</span>
                         <?php endforeach ?>
                     </p>
+                    <p>Anno: <?= $film->relase_date ?></p>
                     <p>E' uscito <?= $film->getYears() ?> anni fa</p>
                 </li>
             <?php endforeach ?>
