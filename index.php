@@ -51,7 +51,6 @@ class Actor
 
 // attori imitation game
 $actor1 = new Actor('Benedict', 'Cumberbatch', 33);
-$actor1->setAge(34);
 $actor2 = new Actor('Jimm', 'Logan', 40);
 // attori interstellar
 $actor3 = new Actor('Matthew', 'McConaughey', 50);
