@@ -2,20 +2,27 @@
 class Movie
 {
     public $title;
-    public $year;
+    public $relase_date;
     public $genre;
     public $main_actor;
 
     public function __construct(
         $title,
-        $year,
+        $relase_date,
         $genre,
         $main_actor,
     ) {
         $this->title = $title;
-        $this->year = $year;
+        $this->relase_date = $relase_date;
         $this->genre = $genre;
         $this->main_actor = $main_actor;
+    }
+
+    public function getYears()
+    {
+        $current_date = date("Y");
+        $year = $current_date - $this->relase_date;
+        return $year;
     }
 }
 
@@ -50,9 +57,10 @@ var_dump($films[1]);
             <?php foreach ($films as $film) : ?>
                 <li class="card p-5 mb-5">
                     <h4 class="mb-4"><?= $film->title ?></h4>
-                    <p>Anno: <?= $film->year ?></p>
+                    <p>Anno: <?= $film->relase_date ?></p>
                     <p>Genere: <?= $film->genre ?></p>
                     <p>Attore principale: <?= $film->main_actor ?></p>
+                    <p>E' uscito <?= $film->getYears() ?> anni fa</p>
                 </li>
             <?php endforeach ?>
         </ul>
