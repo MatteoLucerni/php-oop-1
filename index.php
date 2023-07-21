@@ -45,7 +45,6 @@ var_dump($films[1]);
 </head>
 
 <body class="bg-light">
-    <hr>
     <div class="container">
         <ul class="mt-5 p-0">
             <?php foreach ($films as $film) : ?>
