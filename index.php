@@ -66,10 +66,6 @@ $interstellar_actors = [
     $secondary_actor = $actor4->getFullName() . ' che ha ' . $actor4->age . ' anni'
 ];
 
-var_dump($imitation_game_actors);
-var_dump($interstellar_actors);
-
-
 $films = [
     $imitation_game = new Movie('The Imitation Game', 2014, 'Drammatico', $imitation_game_actors),
     $interstellar = new Movie('Interstellar', 2016, 'Fantascienza', $interstellar_actors)
